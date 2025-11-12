@@ -6,7 +6,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 
-export function InputWithButton(props: TextInputProps) {
+export const SearchInput = (props: TextInputProps) => {
   const theme = useMantineTheme();
 
   return (
@@ -31,4 +31,4 @@ export function InputWithButton(props: TextInputProps) {
       {...props}
     />
   );
-}
+};

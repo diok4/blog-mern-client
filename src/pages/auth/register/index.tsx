@@ -1,9 +1,10 @@
+import { RegisterForm } from "@/features/auth/register/ui";
 import type { FC } from "react";
 
 export const RegisterPage: FC = () => {
   return (
     <div>
-      <h1>RegisterPage</h1>
+      <RegisterForm />
     </div>
   );
 };

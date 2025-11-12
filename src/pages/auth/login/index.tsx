@@ -1,10 +1,10 @@
+import { LoginForm } from "@/features/auth/ui/login";
 import type { FC } from "react";
-//import styles from './LoginPage.module.css'
 
 export const LoginPage: FC = () => {
   return (
     <div>
-      <h1>LoginPage</h1>
+      <LoginForm />
     </div>
   );
 };

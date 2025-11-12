@@ -1,0 +1,28 @@
+.container {
+  background-color: #1f2937;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 3px;
+  border-radius: 7px;
+  user-select: none;
+}
+
+.container a {
+  border-radius: 7px;
+  width: 100%;
+  padding: 7px 50px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.658);
+  text-decoration: none;
+}
+
+.container a:hover {
+  color: white;
+}
+
+.isActive {
+  background-color: #2563eb;
+  color: white !important;
+}
