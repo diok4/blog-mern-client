@@ -1,16 +1,32 @@
 import { AuthFormSegmentControl } from "@/shared/segment-control";
 import { useState, type FC } from "react";
 import { CustomInput } from "@/shared/custom-input";
+import { useLoginMutation } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm: FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [login] = useLoginMutation();
+  const navigate = useNavigate();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await login(formData).unwrap();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-[500px] mx-auto mt-[150px] bg-[#111827] rounded-xl p-5 border border-[#1F2937]">
-      <form className="">
+      <form onSubmit={handleSubmit}>
         <div>
           <h2 className="text-center font-semibold  text-2xl">
             Welcome back, sign in to continue...
@@ -43,6 +59,12 @@ export const LoginForm: FC = () => {
             />
           </div>
         </div>
+        <button
+          type="submit"
+          className="mt-5 bg-[#3B82F6] hover:bg-[#2563EB]  transition-[0.1s] py-1.5 w-full rounded-xl"
+        >
+          Sign In
+        </button>
       </form>
     </div>
   );

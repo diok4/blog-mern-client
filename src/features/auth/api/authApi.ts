@@ -3,14 +3,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000/api/",
+    baseUrl: "http://localhost:3000/api/auth/",
     credentials: "include",
   }),
   tagTypes: ["User"],
   endpoints: (build) => ({
     register: build.mutation({
       query: (body) => ({
-        url: "auth/register",
+        url: "register",
         method: "POST",
         body,
       }),
@@ -18,7 +18,7 @@ export const authApi = createApi({
     }),
     login: build.mutation({
       query: (body) => ({
-        url: "auth/login",
+        url: "login",
         method: "POST",
         body,
       }),
@@ -26,21 +26,21 @@ export const authApi = createApi({
     }),
     logout: build.mutation({
       query: () => ({
-        url: "auth/logout",
+        url: "logout",
         method: "POST",
       }),
       invalidatesTags: ["User"],
     }),
-    me: build.query({
+    isAuth: build.query<any, void>({
       query: () => ({
-        url: "users/me",
+        url: "isauth",
       }),
       providesTags: ["User"],
     }),
-    updateMe: build.mutation({
+    me: build.mutation({
       query: (body) => ({
         method: "PATCH",
-        url: "users/me",
+        url: "me",
         body,
       }),
 
@@ -53,6 +53,6 @@ export const {
   useRegisterMutation,
   useLoginMutation,
   useLogoutMutation,
-  useMeQuery,
-  useUpdateMeMutation,
+  useIsAuthQuery,
+  useMeMutation,
 } = authApi;

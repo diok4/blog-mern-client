@@ -1,4 +1,4 @@
-import { LoginForm } from "@/features/auth/ui/login";
+import { LoginForm } from "@/features/auth";
 import type { FC } from "react";
 
 export const LoginPage: FC = () => {
