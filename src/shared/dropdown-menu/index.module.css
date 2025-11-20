@@ -1,0 +1,50 @@
+.trigger {
+  background-color: rgba(58, 58, 58, 0.466);
+  color: white;
+  font-weight: 500;
+  border-radius: 50%;
+  padding: 6px 12px;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.trigger:hover {
+  background-color: #3134ce;
+}
+
+.panel {
+  background: rgba(50, 50, 50, 0.205);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  min-width: 180px;
+  padding: 6px 0;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.item:hover {
+  background-color: #3134ce;
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

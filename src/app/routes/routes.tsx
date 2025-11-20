@@ -23,9 +23,9 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <MainPage /> },
       { path: "profile", element: <ProfilePage /> },
-      { path: "posts/create", element: <CreatePostPage /> },
-      { path: "posts/:id", element: <PostPage /> },
-      { path: "posts/:id/edit", element: <CreatePostPage /> },
+      { path: "post/create", element: <CreatePostPage /> },
+      { path: "post/:id", element: <PostPage /> },
+      { path: "post/:id/edit", element: <CreatePostPage /> },
     ],
   },
 ]);

@@ -1,0 +1,78 @@
+.tiptap {
+  min-height: 150px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(58, 58, 58, 0.178);
+  color: #f4f4f4;
+  font-family: sans-serif;
+}
+
+.tiptap:focus {
+  outline: none;
+}
+
+.tiptap > :first-child {
+  margin-top: 0;
+}
+
+.tiptap h1 {
+  font-size: 1.4rem;
+  margin: 1.2rem 0 0.8rem;
+  color: #fff;
+}
+
+.tiptap ul,
+.tiptap ol {
+  padding-left: 1.2rem;
+  margin: 0.8rem 0;
+}
+.tiptap li {
+  margin: 0.25em 0;
+}
+
+.tiptap code {
+  background: #2d2d2d;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #ffcc66;
+}
+.tiptap pre {
+  background: #111;
+  color: #f4f4f4;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+button {
+  border: 1px solid #444;
+  background: #2a2a2a;
+  color: #eee;
+  border-radius: 4px;
+  margin-right: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+  background: #3a3a3a;
+}
+
+button.is-active {
+  background: #007acc;
+  color: #fff;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.MenuBar {
+  margin: 0 auto;
+  text-align: center;
+}

@@ -37,13 +37,19 @@ export const authApi = createApi({
       }),
       providesTags: ["User"],
     }),
-    me: build.mutation({
+    me: build.query<any, void>({
+      query: (body) => ({
+        url: "me",
+        body,
+      }),
+      providesTags: ["User"],
+    }),
+    updateMe: build.mutation({
       query: (body) => ({
         method: "PATCH",
         url: "me",
         body,
       }),
-
       invalidatesTags: ["User"],
     }),
   }),
@@ -54,5 +60,6 @@ export const {
   useLoginMutation,
   useLogoutMutation,
   useIsAuthQuery,
-  useMeMutation,
+  useMeQuery,
+  useUpdateMeMutation,
 } = authApi;
