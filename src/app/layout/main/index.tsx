@@ -6,7 +6,9 @@ export const MainLayout: FC = () => {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <div className="pt-21">
+        <Outlet />
+      </div>
     </>
   );
 };
