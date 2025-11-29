@@ -11,6 +11,8 @@ export interface IPost {
   tags: string;
   author: IAuthor;
   createdAt: string | number;
+  _id: string;
+  key: number | string;
 }
 
 export const postApi = createApi({
@@ -37,7 +39,13 @@ export const postApi = createApi({
       }),
       providesTags: ["Post"],
     }),
+
+    getPostById: build.query<{ post: IPost }, string>({
+      query: (id) => `/${id}`,
+      providesTags: ["Post"],
+    }),
   }),
 });
 
-export const { useCreatePostMutation, useGetPostsQuery } = postApi;
+export const { useCreatePostMutation, useGetPostsQuery, useGetPostByIdQuery } =
+  postApi;

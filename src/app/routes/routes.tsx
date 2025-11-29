@@ -7,6 +7,7 @@ import { MainPage } from "@/pages/main";
 import { ProfilePage } from "@/pages/profile";
 import { CreatePostPage } from "@/pages/posts/create-post";
 import { PostPage } from "@/pages/posts/post";
+import { ProfileByIdPage } from "@/pages/profile/profile-by-id";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <MainPage /> },
       { path: "profile", element: <ProfilePage /> },
+      { path: "user/:id", element: <ProfileByIdPage /> },
       { path: "post/create", element: <CreatePostPage /> },
       { path: "post/:id", element: <PostPage /> },
       { path: "post/:id/edit", element: <CreatePostPage /> },

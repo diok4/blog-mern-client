@@ -6,7 +6,8 @@ import { FaUser } from "react-icons/fa";
 import { DropdownMenu } from "@/shared/dropdown-menu";
 
 export const NavBar: FC = () => {
-  const { data: isAuth } = useIsAuthQuery();
+  const { data } = useIsAuthQuery();
+  const isAuth = data?.authenticated;
 
   return (
     <div className="w-full h-16 bg-[#111827] flex fixed z-10  px-10 border-b border-b-[#1F2937]">
@@ -51,7 +52,7 @@ export const NavBar: FC = () => {
             </div>
           </div>
         ) : (
-          <div className="font-semibold">
+          <div className="font-semibold flex items-center">
             <Link to="auth/login">
               <button className="bg-none rounded-lg hover:text-[#3B82F6] cursor-pointer h-10 px-4 transition-[0.1s]">
                 Login

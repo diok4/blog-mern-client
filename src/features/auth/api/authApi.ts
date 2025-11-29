@@ -38,11 +38,13 @@ export const authApi = createApi({
       providesTags: ["User"],
     }),
     me: build.query<any, void>({
-      query: (body) => ({
+      query: () => ({
         url: "me",
-        body,
       }),
       providesTags: ["User"],
+    }),
+    getUserById: build.query({
+      query: (id) => `me?id=${id}`,
     }),
     updateMe: build.mutation({
       query: (body) => ({
@@ -61,5 +63,6 @@ export const {
   useLogoutMutation,
   useIsAuthQuery,
   useMeQuery,
+  useGetUserByIdQuery,
   useUpdateMeMutation,
 } = authApi;

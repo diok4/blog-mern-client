@@ -16,17 +16,17 @@ export const GetPosts: FC = () => {
     <>
       {posts?.posts?.map((post: IPost) => (
         <div
-          // key={post.id}
+          key={post._id}
           className="widget w-full bg-[#111827] rounded-xl p-5 border border-[#1F2937]"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="text-4xl">
-              <Link to="/profile">
+              <Link to={`user/${post?.author?._id}`}>
                 <FaUserCircle />
               </Link>
             </div>
             <div>
-              <Link to="/profile">
+              <Link to={`user/${post?.author?._id}`}>
                 <h2 className="text-[16px] font-semibold">
                   {post?.author?.username}
                 </h2>
@@ -42,7 +42,7 @@ export const GetPosts: FC = () => {
             </h1>
           </div>
           <div className="w-full h-auto my-4 hover:brightness-[0.93] transition-[0.2s] cursor-pointer ">
-            <Link to="/">
+            <Link to={`post/${post?._id}`}>
               <img
                 src="https://thumbs.dreamstime.com/b/ai-generated-picture-future-city-skyscrapers-cyberpunk-dystopian-style-284000785.jpg"
                 alt="404"
@@ -78,7 +78,7 @@ export const GetPosts: FC = () => {
             </span>
           </div>
         </div>
-      ))}{" "}
+      ))}
     </>
   );
 };
