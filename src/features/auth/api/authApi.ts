@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://blog-mern-server-three.vercel.app/api/auth/",
+    baseUrl: "https://sendpost-server.onrender.com/api/auth/",
     credentials: "include",
   }),
   tagTypes: ["User"],
@@ -46,14 +46,6 @@ export const authApi = createApi({
     getUserById: build.query({
       query: (id) => `me?id=${id}`,
     }),
-    updateMe: build.mutation({
-      query: (body) => ({
-        method: "PATCH",
-        url: "me",
-        body,
-      }),
-      invalidatesTags: ["User"],
-    }),
   }),
 });
 
@@ -64,5 +56,4 @@ export const {
   useIsAuthQuery,
   useMeQuery,
   useGetUserByIdQuery,
-  useUpdateMeMutation,
 } = authApi;

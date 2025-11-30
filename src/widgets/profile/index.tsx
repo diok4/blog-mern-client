@@ -9,9 +9,13 @@ interface IUser {
 
 export const ProfileWidget: FC = () => {
   const { data: dataAuthenticated } = useIsAuthQuery();
-  const isAuth = dataAuthenticated?.authenticated;
-  const { data: dataUser } = useMeQuery();
-  const user: IUser = dataUser?.user;
+  const isAuth = dataAuthenticated?.authenticated === true;
+
+  const { data: dataUser } = useMeQuery(undefined, {
+    skip: !isAuth,
+  });
+
+  const user: IUser | undefined = dataUser?.user;
 
   return (
     <>
