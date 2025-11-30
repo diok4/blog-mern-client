@@ -18,7 +18,7 @@ export interface IPost {
 export const postApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000/api/posts",
+    baseUrl: "https://blog-mern-server-three.vercel.app/api/posts",
     credentials: "include",
   }),
   tagTypes: ["Post"],
