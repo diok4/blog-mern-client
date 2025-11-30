@@ -8,6 +8,7 @@ import { ProfilePage } from "@/pages/profile";
 import { CreatePostPage } from "@/pages/posts/create-post";
 import { PostPage } from "@/pages/posts/post";
 import { ProfileByIdPage } from "@/pages/profile/profile-by-id";
+import { SettingsPage } from "@/pages/settings";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: "post/create", element: <CreatePostPage /> },
       { path: "post/:id", element: <PostPage /> },
       { path: "post/:id/edit", element: <CreatePostPage /> },
+      { path: "settings", element: <SettingsPage /> },
     ],
   },
 ]);
