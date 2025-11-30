@@ -6,12 +6,13 @@ import StarterKit from "@tiptap/starter-kit";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { MenuBar } from "@/shared/tiptap";
 import { useNavigate } from "react-router-dom";
+import { LoadingOverlay } from "@/shared/loader";
 
 const extensions = [StarterKit, TextStyle];
 
 export const CreatePost: FC = () => {
   const [post, setPost] = useState({ title: "", text: "" });
-  const [createPost] = useCreatePostMutation();
+  const [createPost, { isLoading }] = useCreatePostMutation();
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,6 +43,7 @@ export const CreatePost: FC = () => {
 
   return (
     <div className="max-w-4xl h-screen mx-auto space-y-4">
+      {isLoading && <LoadingOverlay />}
       <form onSubmit={handleSubmit} className="space-y-5 px-2 ">
         <input
           type="text"

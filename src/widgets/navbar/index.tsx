@@ -4,17 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { useIsAuthQuery, useLogoutMutation } from "@/features/auth/api/authApi";
 import { FaUser } from "react-icons/fa";
 import { DropdownMenu } from "@/shared/dropdown-menu";
+import { LoadingOverlay } from "@/shared/loader";
 
 export const NavBar: FC = () => {
   const { data } = useIsAuthQuery();
   const isAuth = data?.authenticated;
-  const [logout] = useLogoutMutation();
+  const [logout, { isLoading }] = useLogoutMutation();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await logout().unwrap();
-      navigate("/auth/login");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -22,6 +23,7 @@ export const NavBar: FC = () => {
 
   return (
     <div className="w-full h-16 bg-[#111827] flex fixed z-10  px-10 border-b border-b-[#1F2937]">
+      {isLoading && <LoadingOverlay />}
       <div className="max-w-[1300px] mx-auto flex items-center justify-around">
         <div className="text-2xl w-[400px]  font-semibold text-blue-500">
           <Link to="/">

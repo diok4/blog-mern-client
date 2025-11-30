@@ -3,10 +3,11 @@ import { useState, type FC } from "react";
 import { CustomInput } from "@/shared/custom-input";
 import { useLoginMutation } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
+import { LoadingOverlay } from "@/shared/loader";
 
 export const LoginForm: FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [login] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +27,7 @@ export const LoginForm: FC = () => {
 
   return (
     <div className="w-full h-screen pt-[150px]">
-      {" "}
+      {isLoading && <LoadingOverlay />}
       <div className="w-[500px] mx-auto  bg-[#111827] rounded-xl p-5 border border-[#1F2937]">
         <form onSubmit={handleSubmit}>
           <div>

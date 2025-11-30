@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 import { useGetPostsQuery } from "@/features/post/api/postApi";
 import type { IPost } from "@/features/post/api/postApi";
 import { format } from "date-fns";
+import { LoadingOverlay } from "@/shared/loader";
 
 export const GetPosts: FC = () => {
   const [liked, setIsLiked] = useState(false);
   const { data: posts, isLoading } = useGetPostsQuery();
 
-  if (isLoading) return null;
-  console.log(posts);
-
   return (
     <>
+      {isLoading && <LoadingOverlay />}
       {posts?.posts?.map((post: IPost) => (
         <div
           key={post._id}
@@ -44,15 +43,16 @@ export const GetPosts: FC = () => {
           <div className="w-full h-auto my-4 hover:brightness-[0.93] transition-[0.2s] cursor-pointer ">
             <Link to={`post/${post?._id}`}>
               <img
-                src="https://thumbs.dreamstime.com/b/ai-generated-picture-future-city-skyscrapers-cyberpunk-dystopian-style-284000785.jpg"
+                src="https://thumbs.dreamstime.com/b/content-writer-vector-creative-circular-outline-illustration-content-writer-vector-creative-circular-illustration-made-127088791.jpg"
                 alt="404"
-                className="rounded-xl object-cover "
+                width="100%"
+                className="rounded-xl object-fit h-[600px]"
               />
             </Link>
           </div>
           <div className="flex items-end">
             <div
-              className="text-[15px] text-gray-400 leading-normal line-clamp-3"
+              className="text-xl text-gray-400 leading-normal line-clamp-3"
               dangerouslySetInnerHTML={{ __html: post.text }}
             />
 
