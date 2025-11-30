@@ -35,7 +35,7 @@ export const ProfileWidget: FC = () => {
           </div>
         </div>
       ) : (
-        <div className="widget w-full sm:w-1 xl:w-1/6 h-full bg-[#111827] rounded-xl p-5 border border-[#1F2937] text-center">
+        <div className="widget w-full  bg-[#111827] rounded-xl p-5 border border-[#1F2937] text-center">
           <div className="text-7xl text-[#1F2937] my-4 flex justify-center">
             <FaUserCircle />
           </div>
@@ -46,7 +46,7 @@ export const ProfileWidget: FC = () => {
             </p>
           </div>
           <div className="font-semibold text-[16px]">
-            <button className="bg-[#3B82F6] hover:bg-[#2563EB]  transition-[0.1s] py-1.5 w-full rounded-lg ">
+            <button className="bg-blue-500 hover:bg-blue-600  transition-[0.1s] py-1.5 w-full rounded-lg ">
               Login
             </button>
           </div>

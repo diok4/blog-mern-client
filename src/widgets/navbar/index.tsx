@@ -63,14 +63,14 @@ export const NavBar: FC = () => {
             </div>
           </div>
         ) : (
-          <div className="font-semibold flex items-center">
+          <div className="font-semibold w-[400px] flex items-center ">
             <Link to="auth/login">
-              <button className="bg-none rounded-lg hover:text-[#3B82F6] cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="bg-none rounded-lg hover:text-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
                 Login
               </button>
             </Link>
             <Link to="auth/register">
-              <button className="bg-[#3B82F6] rounded-lg  hover:bg-[#2563EB] cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="bg-blue-500 rounded-lg  hover:bg-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
                 Register
               </button>
             </Link>
