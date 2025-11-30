@@ -1,17 +1,10 @@
 import { IconArrowRight, IconSearch } from "@tabler/icons-react";
-import {
-  ActionIcon,
-  TextInput,
-  type TextInputProps,
-  useMantineTheme,
-} from "@mantine/core";
+import { ActionIcon, TextInput, type TextInputProps } from "@mantine/core";
 
 export const SearchInput = (props: TextInputProps) => {
-  const theme = useMantineTheme();
-
   return (
     <TextInput
-      styles={(theme) => ({
+      styles={() => ({
         input: {
           backgroundColor: "#0B1220",
           color: "#E5E7EB",
