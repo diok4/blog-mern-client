@@ -28,7 +28,7 @@ export const ProfileWidget: FC = () => {
           </div>
           <div className="font-semibold text-[16px]">
             <Link to="profile">
-              <button className="bg-[#3B82F6] hover:bg-[#2563EB]  transition-[0.1s] py-1.5 w-full rounded-lg ">
+              <button className="bg-blue-500 hover:bg-blue-600  transition-[0.1s] py-1.5 w-full rounded-lg ">
                 View Profile
               </button>
             </Link>

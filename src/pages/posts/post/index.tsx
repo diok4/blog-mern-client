@@ -18,7 +18,7 @@ export const PostPage: FC = () => {
   return (
     <div
       key={post._id}
-      className="widget w-full bg-[#111827] rounded-xl p-5 border border-[#1F2937]"
+      className="widget w-[1150px] mx-auto bg-[#111827] rounded-xl p-5 border border-[#1F2937]"
     >
       <div className="flex items-center gap-3 mb-4">
         <div className="text-4xl">
@@ -44,24 +44,20 @@ export const PostPage: FC = () => {
         </h1>
       </div>
 
-      <div className="w-full h-auto my-4 hover:brightness-[0.93] transition-[0.2s] cursor-pointer ">
-        <Link to={`/post/${post._id}`}>
-          <img
-            src="https://thumbs.dreamstime.com/b/ai-generated-picture-future-city-skyscrapers-cyberpunk-dystopian-style-284000785.jpg"
-            alt="404"
-            className="rounded-xl object-cover "
-          />
-        </Link>
+      <div className="my-4 ">
+        <img
+          src="https://thumbs.dreamstime.com/b/ai-generated-picture-future-city-skyscrapers-cyberpunk-dystopian-style-284000785.jpg"
+          alt="404"
+          width="100%"
+          className="rounded-xl object-cover "
+        />
       </div>
 
       <div className="flex items-end">
         <div
-          className="text-[15px] text-gray-400 leading-normal line-clamp-3"
+          className="text-[15px] text-gray-400 leading-normal"
           dangerouslySetInnerHTML={{ __html: post.text }}
         />
-        <Link to="/" className="text-[15px] text-[#3b83f6]">
-          read
-        </Link>
       </div>
 
       <div className="flex items-center justify-between text-[18px] mt-8">

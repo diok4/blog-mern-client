@@ -8,7 +8,7 @@
 }
 
 .trigger:hover {
-  background-color: #3134ce;
+  background-color: #2563eb;
 }
 
 .panel {
@@ -33,7 +33,7 @@
 }
 
 .item:hover {
-  background-color: #3134ce;
+  background-color: #2563eb;
   backdrop-filter: blur(10px);
   color: #fff;
 }

@@ -1,18 +1,29 @@
 import type { FC } from "react";
 import { SearchInput } from "@/shared/search-input";
-import { Link } from "react-router-dom";
-import { useIsAuthQuery } from "@/features/auth/api/authApi";
+import { Link, useNavigate } from "react-router-dom";
+import { useIsAuthQuery, useLogoutMutation } from "@/features/auth/api/authApi";
 import { FaUser } from "react-icons/fa";
 import { DropdownMenu } from "@/shared/dropdown-menu";
 
 export const NavBar: FC = () => {
   const { data } = useIsAuthQuery();
   const isAuth = data?.authenticated;
+  const [logout] = useLogoutMutation();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout().unwrap();
+      navigate("/auth/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="w-full h-16 bg-[#111827] flex fixed z-10  px-10 border-b border-b-[#1F2937]">
       <div className="max-w-[1300px] mx-auto flex items-center justify-around">
-        <div className="text-2xl w-[400px]  font-semibold text-[#3B82F6]">
+        <div className="text-2xl w-[400px]  font-semibold text-blue-500">
           <Link to="/">
             <h1>SENDPOST</h1>
           </Link>
@@ -27,12 +38,12 @@ export const NavBar: FC = () => {
         {isAuth ? (
           <div className="font-semibold w-[400px] flex items-center ">
             <Link to="/">
-              <button className="bg-none rounded-lg hover:text-[#3B82F6] cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="bg-none rounded-lg hover:text-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
                 Home
               </button>
             </Link>
             <Link to="post/create">
-              <button className="bg-[#3B82F6] rounded-lg  hover:bg-[#2563EB] cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="bg-blue-500 rounded-lg  hover:bg-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
                 Write
               </button>
             </Link>
@@ -45,7 +56,7 @@ export const NavBar: FC = () => {
                   {
                     value: "logout",
                     label: "Logout",
-                    onClick: () => console.log("Logging out..."),
+                    onClick: handleLogout,
                   },
                 ]}
               />

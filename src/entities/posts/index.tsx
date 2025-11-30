@@ -55,7 +55,11 @@ export const GetPosts: FC = () => {
               className="text-[15px] text-gray-400 leading-normal line-clamp-3"
               dangerouslySetInnerHTML={{ __html: post.text }}
             />
-            <Link to="/" className="text-[15px] text-[#3b83f6]">
+
+            <Link
+              to={`post/${post?._id}`}
+              className="text-[15px] text-[#3b83f6]"
+            >
               read
             </Link>
           </div>

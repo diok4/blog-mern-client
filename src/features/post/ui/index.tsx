@@ -41,39 +41,23 @@ export const CreatePost: FC = () => {
   });
 
   return (
-    <div className="max-w-2xl mx-auto space-y-4">
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-4xl h-screen mx-auto space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-5 px-2 ">
         <input
           type="text"
           name="title"
-          placeholder="Введите текст"
+          placeholder="Title..."
           onChange={handleChange}
-          className="
-            w-full px-4 py-2 rounded-lg
-            bg-zinc-800 text-white placeholder-zinc-400
-            outline-none focus:ring-2 focus:ring-blue-500
-          "
+          className="w-full px-4 py-2 rounded-lg bg-[#111827] text-white placeholder-zinc-400 outline-none 
+          border border-[#1F2937] "
         />
-
         <MenuBar editor={editor} />
-
-        <EditorContent
-          editor={editor}
-          className="
-            min-h-[150px] px-4 py-3 rounded-lg
-            bg-zinc-800/40 text-white
-            prose prose-invert
-            max-w-none
-            focus:outline-none
-          "
-        />
-
+        <div className="w-full rounded-lg bg-[#111827] border border-[#1F2937] p-2">
+          <EditorContent editor={editor} />
+        </div>
         <button
           type="submit"
-          className="
-            px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700
-            transition text-white font-medium
-          "
+          className="w-full px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition text-white font"
         >
           create
         </button>

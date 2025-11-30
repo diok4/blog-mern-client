@@ -33,7 +33,7 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) return null;
 
   return (
-    <div className="flex flex-wrap gap-2 bg-zinc-800/50 p-2 rounded-lg">
+    <div className="flex justify-center flex-wrap gap-2 rounded-lg">
       <ToolbarButton
         active={state.isBold}
         disabled={!state.canBold}
@@ -112,7 +112,7 @@ const ToolbarButton = ({ active, disabled, onClick, children }: any) => (
       flex items-center justify-center gap-2 px-3 py-1.5 rounded-md
       text-sm transition
       border border-zinc-700
-      ${active ? "bg-blue-600 text-white" : "bg-zinc-800 text-zinc-200"}
+      ${active ? "bg-blue-600 text-white" : "bg-[#111827] text-zinc-200"}
       ${!disabled ? "hover:bg-zinc-700" : "opacity-40 cursor-not-allowed"}
     `}
   >

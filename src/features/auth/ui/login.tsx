@@ -25,47 +25,50 @@ export const LoginForm: FC = () => {
   };
 
   return (
-    <div className="w-[500px] mx-auto mt-[150px] bg-[#111827] rounded-xl p-5 border border-[#1F2937]">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h2 className="text-center font-semibold  text-2xl">
-            Welcome back, sign in to continue...
-          </h2>
-        </div>
-        <div className="mt-9">
-          <AuthFormSegmentControl />
-        </div>
-        <div className="mt-3">
+    <div className="w-full h-screen pt-[150px]">
+      {" "}
+      <div className="w-[500px] mx-auto  bg-[#111827] rounded-xl p-5 border border-[#1F2937]">
+        <form onSubmit={handleSubmit}>
           <div>
-            <CustomInput
-              name="email"
-              label="email"
-              type="email"
-              placeholder="Enter email@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              // error={usernameError}
-            />
+            <h2 className="text-center font-semibold  text-2xl">
+              Welcome back, sign in to continue...
+            </h2>
+          </div>
+          <div className="mt-9">
+            <AuthFormSegmentControl />
           </div>
           <div className="mt-3">
-            <CustomInput
-              name="password"
-              label="password"
-              type="password"
-              placeholder="Enter password"
-              value={formData.password}
-              onChange={handleChange}
-              // error={usernameError}
-            />
+            <div>
+              <CustomInput
+                name="email"
+                label="email"
+                type="email"
+                placeholder="Enter email@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                // error={usernameError}
+              />
+            </div>
+            <div className="mt-3">
+              <CustomInput
+                name="password"
+                label="password"
+                type="password"
+                placeholder="Enter password"
+                value={formData.password}
+                onChange={handleChange}
+                // error={usernameError}
+              />
+            </div>
           </div>
-        </div>
-        <button
-          type="submit"
-          className="mt-5 bg-[#3B82F6] hover:bg-[#2563EB]  transition-[0.1s] py-1.5 w-full rounded-xl"
-        >
-          Sign In
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="mt-5 bg-[#3B82F6] hover:bg-[#2563EB]  transition-[0.1s] py-1.5 w-full rounded-xl"
+          >
+            Sign In
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
