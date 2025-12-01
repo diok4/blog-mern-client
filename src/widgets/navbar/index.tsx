@@ -22,15 +22,16 @@ export const NavBar: FC = () => {
   };
 
   return (
-    <div className="w-full h-16 bg-[#111827] flex fixed z-10  px-10 border-b border-b-[#1F2937]">
+    <div className="w-full h-16 bg-[#111827] flex fixed z-10 px-4 sm:px-10 border-b border-b-[#1F2937]">
       {isLoading && <LoadingOverlay />}
-      <div className="max-w-[1300px] mx-auto flex items-center justify-around">
-        <div className="text-2xl w-[400px]  font-semibold text-blue-500">
+
+      <div className="max-w-[1100px] mx-auto flex items-center justify-between w-full">
+        <div className="text-xl sm:text-2xl font-semibold text-blue-500">
           <Link to="/">
             <h1>SENDPOST</h1>
           </Link>
         </div>
-        <div className="w-full mx-10  h-10 ">
+        <div className="hidden sm:block sm:max-w-[600px] mx-4 w-full h-10">
           <SearchInput
             radius="8px"
             placeholder="Search by title..."
@@ -38,18 +39,19 @@ export const NavBar: FC = () => {
           />
         </div>
         {isAuth ? (
-          <div className="font-semibold w-[400px] flex items-center ">
+          <div className="font-semibold flex items-center gap-1 sm:gap-3">
             <Link to="/">
-              <button className="bg-none rounded-lg hover:text-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="rounded-lg hover:text-blue-600 cursor-pointer h-10 px-2 sm:px-4 transition">
                 Home
               </button>
             </Link>
+
             <Link to="post/create">
-              <button className="bg-blue-500 rounded-lg  hover:bg-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="bg-blue-500 rounded-lg hover:bg-blue-600 cursor-pointer h-10 px-3 sm:px-4 transition">
                 Write
               </button>
             </Link>
-            <div className="mx-3">
+            <div className="ml-2">
               <DropdownMenu
                 triggerLabel={<FaUser size={18} />}
                 items={[
@@ -65,14 +67,15 @@ export const NavBar: FC = () => {
             </div>
           </div>
         ) : (
-          <div className="font-semibold w-[400px] flex items-center ">
+          <div className="font-semibold flex items-center gap-1 sm:gap-3">
             <Link to="auth/login">
-              <button className="bg-none rounded-lg hover:text-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="rounded-lg hover:text-blue-600 cursor-pointer h-10 px-2 sm:px-4 transition">
                 Login
               </button>
             </Link>
+
             <Link to="auth/register">
-              <button className="bg-blue-500 rounded-lg  hover:bg-blue-600 cursor-pointer h-10 px-4 transition-[0.1s]">
+              <button className="bg-blue-500 rounded-lg hover:bg-blue-600 cursor-pointer h-10 px-3 sm:px-4 transition">
                 Register
               </button>
             </Link>

@@ -1,10 +1,15 @@
 import { useState, type FC } from "react";
-import { FaUserCircle, FaHeart, FaComment, FaShare } from "react-icons/fa";
+import {
+  FaUserCircle,
+  FaHeart,
+  FaComment,
+  FaShare,
+  FaArrowLeft,
+} from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useGetPostByIdQuery } from "@/features/post/api/postApi";
 import { LoadingOverlay } from "@/shared/loader";
 import { format } from "date-fns";
-import { FaArrowLeft } from "react-icons/fa";
 
 export const PostPage: FC = () => {
   const { id } = useParams();
@@ -28,76 +33,107 @@ export const PostPage: FC = () => {
   return (
     <>
       {isLoading && <LoadingOverlay />}
+
       <button
-        className="ml-2 absolute border border-[#1F2937] px-5 p-1 rounded-2xl"
         onClick={handleBack}
+        className="
+          absolute left-2 top-5 z-20
+          hidden items-center gap-1
+          rounded-2xl border border-slate-800
+          px-3 py-1 text-sm font-bold
+          sm:left-5 sm:inline-flex sm:px-5 sm:text-base
+        "
       >
-        <span className="flex items-center font-bold">
-          <FaArrowLeft />
-          Home
-        </span>
+        <FaArrowLeft />
+        <span>Home</span>
       </button>
+
       <div
         key={post._id}
-        className="widget w-[1150px] mx-auto bg-[#111827] rounded-xl p-5 border border-[#1F2937]"
+        className="
+          mx-auto mt-16 w-full max-w-6xl
+          rounded-xl border border-slate-800
+          bg-slate-900 px-4 py-4
+          sm:mt-20 sm:px-5 sm:py-5
+        "
       >
-        <div className="flex items-center gap-3 mb-4">
-          <div className="text-4xl">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="text-3xl sm:text-4xl">
             <Link to={`/user/${post.author?._id}`}>
               <FaUserCircle />
             </Link>
           </div>
           <div>
             <Link to={`/user/${post.author?._id}`}>
-              <h2 className="text-[16px] font-semibold">
+              <h2 className="text-[14px] sm:text-[16px] font-semibold">
                 {post.author?.username}
               </h2>
             </Link>
-            <p className="text-[13px] text-gray-400 font-medium">
+            <p className="text-[11px] sm:text-[13px] font-medium text-slate-400">
               {format(new Date(post.createdAt), "dd.MM.yyyy HH:mm")}
             </p>
           </div>
         </div>
 
-        <div>
-          <h1 className="text-[18px] font-semibold my-8px leading-[1.3]">
-            {post.title}
-          </h1>
-        </div>
+        <h1 className="my-2 text-[16px] font-semibold leading-[1.3] sm:my-3 sm:text-[18px]">
+          {post.title}
+        </h1>
 
-        <div className="my-4 ">
+        <div className="my-3 sm:my-4">
           <img
             src="https://thumbs.dreamstime.com/b/content-writer-vector-creative-circular-outline-illustration-content-writer-vector-creative-circular-illustration-made-127088791.jpg"
             alt="404"
-            width="100%"
-            className="rounded-xl object-fit h-[600px]"
+            className="h-auto w-full rounded-xl object-cover"
           />
         </div>
 
-        <div className="flex items-end">
+        <div className="flex items-start">
           <div
-            className="text-xl text-gray-400 leading-normal"
+            className="text-[14px] leading-relaxed text-slate-100 sm:text-[16px]"
             dangerouslySetInnerHTML={{ __html: post.text }}
           />
         </div>
 
-        <div className="flex items-center justify-between text-[18px] mt-8">
+        <div className="mt-6 flex items-center justify-between text-[16px] sm:mt-8 sm:text-[18px]">
           <div className="flex items-center gap-4">
-            <span
+            <button
+              type="button"
               onClick={() => setIsLiked(!liked)}
-              className="flex items-center gap-1 cursor-pointer select-none"
+              className="
+                flex items-center gap-1
+                cursor-pointer select-none
+                transition-colors duration-150
+                hover:text-red-500
+              "
             >
-              {liked ? <FaHeart className="text-red-500" /> : <FaHeart />} 0
-            </span>
+              {liked ? <FaHeart className="text-red-500" /> : <FaHeart />}
+              <span>0</span>
+            </button>
 
-            <span className="flex items-center gap-1 cursor-pointer select-none">
-              <FaComment className="hover:text-[#3b83f6] transition-[0.1s]" />0
-            </span>
+            <button
+              type="button"
+              className="
+                flex items-center gap-1
+                cursor-pointer select-none
+                transition-colors duration-150
+                hover:text-blue-500
+              "
+            >
+              <FaComment />
+              <span>0</span>
+            </button>
           </div>
 
-          <span className="flex items-center cursor-pointer select-none">
-            <FaShare className="hover:text-[#3B82F6] transition-[0.1s]" />
-          </span>
+          <button
+            type="button"
+            className="
+              flex cursor-pointer select-none
+              transition-colors duration-150
+              hover:text-blue-500
+            "
+          >
+            <FaShare />
+          </button>
         </div>
       </div>
     </>
