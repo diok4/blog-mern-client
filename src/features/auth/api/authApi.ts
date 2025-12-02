@@ -4,7 +4,13 @@ export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://sendpost-server.onrender.com/api/auth/",
-    credentials: "include",
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   tagTypes: ["User"],
   endpoints: (build) => ({

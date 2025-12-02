@@ -18,7 +18,8 @@ export const LoginForm: FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await login(formData).unwrap();
+      const data = await login(formData).unwrap();
+      localStorage.setItem("token", data.token);
       navigate("/");
     } catch (error) {
       console.log(error);

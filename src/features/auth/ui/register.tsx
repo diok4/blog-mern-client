@@ -25,7 +25,8 @@ export const RegisterForm: FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await register(formData).unwrap();
+      const data = await register(formData).unwrap();
+      localStorage.setItem("token", data.token);
       navigate("/");
     } catch (error) {
       console.log(error);
