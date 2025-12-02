@@ -15,6 +15,7 @@ export const NavBar: FC = () => {
   const handleLogout = async () => {
     try {
       await logout().unwrap();
+      localStorage.clear();
       navigate("/");
     } catch (error) {
       console.log(error);
